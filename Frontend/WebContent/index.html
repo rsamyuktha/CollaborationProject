@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Collaboration </title>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+     <script scr="RouteConfig.js"></script>
+     <script scr="Blog/BlogController.js"></script>
+     <script scr="Blog/AdminBlogController.js"></script>
+     <script scr="User/UserController.js"></script>
+</head>
+
+<body ng-app="myapp">
+<table width="100%">
+
+ <tr bgcolour="cyan">
+   <td> <center>  Collaboration </center> </td>
+ </tr>
+   
+ <tr bgcolour="orange">
+   <td>
+         <a href="#/">Home</a>|&nbsp;&nbsp;&nbsp;
+         <a href="#/Blog">Blog</a>|&nbsp;&nbsp;&nbsp;
+         <a href="#/Forum">Forum</a>|&nbsp;&nbsp;&nbsp;
+         <a href="#/AdminBlog">Admin Blog</a>
+         <a href="#/Register">Sign Up</a>
+   </td>
+ </tr>
+ 
+ <tr>
+    <td><div><ng-view></ng-view></div></td>
+ </tr>
+ 
+ <tr> 
+     <td> <center>Copyrights since 1995</center>
+ </tr>
+ </table>
+</body>
+</html>
