@@ -1,67 +1,87 @@
 package com.niit.Backend.Domain;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+
+@SuppressWarnings("unused")
+@Component
+@Table(name = "C_Forum")
 @Entity
-@Table
-public class Forum {
+public class Forum extends BaseDomain
+{
 	@Id
-	int forumId;
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String forum_id;
+	@Lob
+	private String description;
+	private String username;
+	private String date_time;
+	@Lob
+	private String rejected;
+	private char status;
 	
-	String forumName;
-	String forumContent;
-	String username;
-	String status;
-	
-	
-	Date createDate;
-	
-	public Date getCreateDate() {
-		return createDate;
+	public int getId() {
+		return id;
 	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public int getForumId() 
-	{
-		return forumId;
+
+	public String getForum_id() {
+		return forum_id;
 	}
-	public void setForumId(int forumId) 
-	{
-		this.forumId = forumId;
+
+	public void setForum_id(String forum_id) {
+		this.forum_id = forum_id;
 	}
-	public String getForumName() 
-	{
-		return forumName;
+
+	public String getDescription() {
+		return description;
 	}
-	public void setForumName(String forumName) 
-	{
-		this.forumName = forumName;
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public String getForumContent() 
-	{
-		return forumContent;
-	}
-	public void setForumContent(String forumContent) 
-	{
-		this.forumContent = forumContent;
-	}
-	public String getUsername() 
-	{
+
+	public String getUsername() {
 		return username;
 	}
-	public void setUsername(String username) 
-	{
+
+	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getStatus() {
+
+	public String getDate_time() {
+		return date_time;
+	}
+
+	public void setDate_time(String date_time) {
+		this.date_time = date_time;
+	}
+
+	public String getRejected() {
+		return rejected;
+	}
+
+	public void setRejected(String rejected) {
+		this.rejected = rejected;
+	}
+
+	public char getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+
+	public void setStatus(char status) {
 		this.status = status;
 	}
-	
+
 }
