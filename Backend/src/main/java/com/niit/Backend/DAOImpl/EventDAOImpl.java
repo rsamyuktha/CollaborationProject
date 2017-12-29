@@ -125,28 +125,5 @@ public class EventDAOImpl implements EventDAO
 		}
 	}
 
-	public com.niit.Backend.DAO.Event getEvent(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public com.niit.Backend.DAO.Event getEvent(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public com.niit.Backend.DAO.Event getEvent(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public com.niit.Backend.DAO.Event getEvent(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public com.niit.Backend.DAO.Event getEvent(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-}
+	
+		}

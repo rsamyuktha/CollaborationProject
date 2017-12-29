@@ -1,4 +1,4 @@
-package com.niit.collaboration.DAOImpl;
+package com.niit.Backend.DAOImpl;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.collaboration.DAO.JobAppliedDAO;
-import com.niit.collaboration.model.JobApplied;
+import com.niit.Backend.DAO.JobAppliedDAO;
+import com.niit.Backend.Domain.JobApplied;
 
 @SuppressWarnings("deprecation")
 @Repository("jobAppliedDAO")

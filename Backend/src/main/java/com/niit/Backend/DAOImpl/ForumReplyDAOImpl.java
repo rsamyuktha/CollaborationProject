@@ -115,19 +115,5 @@ public class ForumReplyDAOImpl implements ForumReplyDAO
 		return null;	
 	}
 
-	public com.niit.Backend.DAO.ForumReply getReply(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public com.niit.Backend.DAO.ForumReply getReply(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public com.niit.Backend.DAO.ForumReply getReply(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+		
 }

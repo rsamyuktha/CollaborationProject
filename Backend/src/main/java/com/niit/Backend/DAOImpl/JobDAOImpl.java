@@ -138,13 +138,4 @@ public class JobDAOImpl implements JobDAO
 		}
 	}
 
-	public com.niit.Backend.DAO.Job getJob(String name) {
-		// TODO Auto-generated method stub
-		return null;
 	}
-
-	public com.niit.Backend.DAO.Job getJob(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-}

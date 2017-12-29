@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.Backend.DAO.ForumDAO;
-import com.niit.Backend.domain.Forum;
+import com.niit.Backend.Domain.Forum;
 
 
 
@@ -202,18 +202,4 @@ public class ForumDAOImpl implements ForumDAO
 		}
 	}
 
-	public boolean addForum(com.niit.Backend.Domain.Forum forum) {
-		// TODO Auto-generated method stub
-		return false;
 	}
-
-	public boolean updateForum(com.niit.Backend.Domain.Forum forum) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public com.niit.Backend.Domain.Forum getForum(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-}

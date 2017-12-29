@@ -69,9 +69,5 @@ public class FileUploadDAOImpl implements FileUploadDAO
 	}
 
 
-	public com.niit.Backend.DAO.FileUpload getFile(String username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 }
