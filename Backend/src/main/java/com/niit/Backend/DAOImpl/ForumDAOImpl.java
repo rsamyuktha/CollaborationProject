@@ -1,116 +1,219 @@
 package com.niit.Backend.DAOImpl;
+
 import java.util.List;
 
-import org.hibernate.Session;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.Backend.Domain.Forum;
+import com.niit.Backend.DAO.ForumDAO;
+import com.niit.Backend.domain.Forum;
 
 
-public class ForumDAOImpl 
+
+@SuppressWarnings("deprecation")
+@Repository("forumDAO")
+@EnableTransactionManagement
+public class ForumDAOImpl implements ForumDAO
 {
-	@Autowired
-	SessionFactory sessionFactory;
+	private static final Logger log = LoggerFactory.getLogger(ForumDAOImpl.class);
 	
-	public ForumDAOImpl(SessionFactory sessionFactory)
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	public ForumDAOImpl(SessionFactory sessionFactory) 
 	{
-		this.sessionFactory=sessionFactory;
+		try 
+		{
+			this.sessionFactory = sessionFactory;
+			log.info("Connection Established Successfully");
+		} 
+		catch (Exception ex) 
+		{
+			log.error("Failed to establish connection");
+			ex.printStackTrace();
+		}
+	}
+	
+	private Integer getMaxId()
+	{
+		log.info("->->Starting of the method getMaxId");
+
+		String hql = "select max(id) from Forum";
+		@SuppressWarnings("rawtypes")
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		Integer maxID;
+		try 
+		{
+			maxID = (Integer) query.uniqueResult();
+			if(maxID==null)
+			{
+				maxID = 10000;
+			}
+		} catch (Exception e) 
+		{
+			log.error("Error getting Max ID");
+			e.printStackTrace();
+			return 10;
+		}
+		log.info("Max id :" + maxID);
+		return maxID;
 	}
 	
 	@Transactional
 	public boolean addForum(Forum forum) 
 	{
+		log.info("Entering add forum");
 		try
 		{
-		sessionFactory.getCurrentSession().save(forum);
-		return true;
-		}
-		catch(Exception e)
-		{
-		System.out.println(e);
-		return false;
-		}
-	}
-
-
-	
-	public boolean updateForum(Forum forum) {
-		
-		try
-		{
-			sessionFactory.getCurrentSession().saveOrUpdate(forum);
+			forum.setId(getMaxId()+1);
+			forum.setStatus('P');
+			sessionFactory.getCurrentSession().save(forum);
+			log.info("Forum has been added "+forum.getForum_id());
 			return true;
-		}
-		catch(Exception e)
+		} catch (Exception ex)
 		{
-			System.out.println("Exception has occured..........."+e);
-			return false;
+			log.error("Forum has not been saved");
+			ex.printStackTrace();
 		}
-		
+			return false;
+	}
+	
+	@Transactional
+	public boolean updateForum(Forum forum)
+	{
+		log.info("Entering Update Forum");
+		try
+		{
+			sessionFactory.getCurrentSession().update(forum);
+			log.info("Forum has been updated "+forum.getForum_id());
+			return true;
+		} catch (Exception ex)
+		{
+			log.error("Forum has not been updated");
+			ex.printStackTrace();
+		}
+			return false;
 	}
 
 	@Transactional
-	
-	public boolean deleteForum(Forum forum) {
+	public boolean deleteForum(int id) 
+	{
+		log.info("Entering delete forum");
 		try
 		{
+			Forum forum = getForum(id);
 			sessionFactory.getCurrentSession().delete(forum);
+			log.info("Forum has been deleted");
 			return true;
-		}
-		catch(Exception e)
+		} catch (Exception ex)
 		{
-			System.out.println("Exception has occured..........."+e);
+			log.error("Forum has not been deleted ");
+			ex.printStackTrace();
+		}
 			return false;
-		}
-		
 	}
 
-	
-	public Forum getForum(int forumId) {
-		Session session=sessionFactory.openSession();
-		Forum forum =(Forum)session.get(Forum.class,forumId);
-		session.close();
-		return forum;
-	}
-
-	
-	public List<Forum> getAllForums() {
-		Session session=sessionFactory.openSession();
-		List<Forum> forumList =(List<Forum>)session.createQuery("from Forum");
-		session.close();
-		return forumList;
-	}
-
-	
-	public boolean approveForum(Forum forum) {
+	@Transactional
+	public Forum getForum(int id) 
+	{
+		log.debug("Starting of Method Get Forum");
 		try
 		{
-			forum.setStatus("A");
-			sessionFactory.getCurrentSession().update(forum);	
-		    return true;
-	    }
-        catch(Exception e)
-		{
-        	System.out.println("Exception has occured"+e);
-        	return false;
+			Forum forum =  (Forum) sessionFactory.getCurrentSession().get(Forum.class, id);
+			forum.setErrorCode("200");
+			forum.setErrorMsg("Forum Found");
+			log.info("Forum found");
+			return forum;
 		}
-   }		
-	
-	
-	public boolean rejectForum(Forum forum) {
+		catch(Exception ex)
+		{
+			log.error("Error getting forum");
+			Forum forum = new Forum();
+			ex.printStackTrace();
+			forum.setErrorCode("404");
+			forum.setErrorMsg("Forum Not Found");
+			return forum;
+		}
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	@Transactional
+	public List<Forum> getForumList() 
+	{
+		log.info("Starting of List Forum method");
 		try
 		{
-			forum.setStatus("N");
-			sessionFactory.getCurrentSession().update(forum);	
-		    return true;
-	    }
-        catch(Exception e)
+			String sql = "FROM Forum";
+			@SuppressWarnings("rawtypes")
+			Query query = sessionFactory.getCurrentSession().createQuery(sql);
+			log.info("Forum list has been retrieved");
+			return query.list();
+		}	catch(Exception ex)
 		{
-        	System.out.println("Exception has occured"+e);
-        	return false;
+			log.error("Error retrieving Forum List");
+			ex.printStackTrace();
+			return null;
 		}
-   }		
-	 
 	}
+	
+	@SuppressWarnings({ "unchecked" })
+	@Transactional
+	public List<Forum> approvedForums() 
+	{
+		log.info("Starting of List Forum method");
+		try
+		{
+			String sql = "FROM Forum where status = 'A'";
+			@SuppressWarnings("rawtypes")
+			Query query = sessionFactory.getCurrentSession().createQuery(sql);
+			log.info("Forum list has been retrieved");
+			return query.list();
+		}	catch(Exception ex)
+		{
+			log.error("Error retrieving Forum List");
+			ex.printStackTrace();
+			return null;
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Forum> getUserForums(String username) 
+	{
+		log.info("Starting of List Forum by user");
+		try
+		{
+			String sql = "FROM Forum where username = '"+username+"'";
+			@SuppressWarnings("rawtypes")
+			Query query = sessionFactory.getCurrentSession().createQuery(sql);
+			log.info("Forum list has been retrieved");
+			return query.list();
+		}	catch(Exception ex)
+		{
+			log.error("Error retrieving Forum List");
+			ex.printStackTrace();
+			return null;
+		}
+	}
+
+	public boolean addForum(com.niit.Backend.Domain.Forum forum) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean updateForum(com.niit.Backend.Domain.Forum forum) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public com.niit.Backend.Domain.Forum getForum(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

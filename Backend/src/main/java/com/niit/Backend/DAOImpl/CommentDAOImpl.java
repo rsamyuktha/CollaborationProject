@@ -1,4 +1,4 @@
-/*package com.niit.Backend.DAOImpl;
+package com.niit.Backend.DAOImpl;
 
 import java.util.List;
 
@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.Backend.DAO.CommentDAO;
 import com.niit.Backend.Domain.BlogComment;
-
 
 @SuppressWarnings("deprecation")
 @Repository("commentDAO")
@@ -101,11 +100,4 @@ public class CommentDAOImpl implements CommentDAO
 			return null;
 		}
 	}
-
-	public boolean addBlogComment(com.niit.Backend.DAO.BlogComment blogComment) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	
-}*/
+}

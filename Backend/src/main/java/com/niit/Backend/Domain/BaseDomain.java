@@ -1,6 +1,5 @@
 package com.niit.Backend.Domain;
 
-
 import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;

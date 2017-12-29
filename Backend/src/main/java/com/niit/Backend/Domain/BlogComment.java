@@ -1,5 +1,4 @@
-/*package com.niit.Backend.Domain;
-
+package com.niit.Backend.Domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -78,4 +77,4 @@ public class BlogComment extends BaseDomain
 	public void setPostedAt(String postedAt) {
 		this.postedAt = postedAt;
 	}
-}*/
+}

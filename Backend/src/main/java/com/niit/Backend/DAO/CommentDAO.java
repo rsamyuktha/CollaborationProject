@@ -1,7 +1,8 @@
-/*package com.niit.Backend.DAO;
+package com.niit.Backend.DAO;
 
 import java.util.List;
 
+import com.niit.Backend.Domain.BlogComment;
 
 public interface CommentDAO
 {
@@ -12,4 +13,3 @@ public interface CommentDAO
 	
 	public List<BlogComment> getBlogComments(String blog_id);
 }
-*/
