@@ -25,7 +25,7 @@ public class BlogDAOTestCase {
 		
 		blogDAO=(BlogDAO)context.getBean("blogDAO");
 	}
-	
+	/*
 	@Test
 	public void addBlogTest()
 	{
@@ -63,7 +63,7 @@ public class BlogDAOTestCase {
         {
         System.out.println("Blog Id"+blog.getBlogId()+"-----"+"Bolg Name"+blog.getBlogName());
 	    }
-     }*/
+     }
 	
 	@Test
 	public void deleteBlogTest()
@@ -94,4 +94,5 @@ public class BlogDAOTestCase {
 		Blog blog=(Blog)blogDAO.getBlog(2016);
 	    assertTrue("Problem in updation",blogDAO.rejectBlog(blog));
 	}
+	*/
 }

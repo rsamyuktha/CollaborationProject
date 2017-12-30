@@ -23,6 +23,7 @@
 			<version>4.12</version>
 		</dependency>
 
+
 		<!-- Self defined for oracle database connection -->
 		<dependency>
 			<groupId>com.oracle</groupId>

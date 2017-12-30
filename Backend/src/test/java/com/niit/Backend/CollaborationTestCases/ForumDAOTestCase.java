@@ -24,7 +24,7 @@ public class ForumDAOTestCase {
 		
 		forumDAO=(ForumDAO)context.getBean("forumDAO");
 	}
-	
+	/*
 	@Test
 	public void addBlogTest()
 	{
@@ -40,7 +40,7 @@ public class ForumDAOTestCase {
 		assertTrue("Problem in Inserting Forum",forumDAO.addForum(forum));
 	
 	}
-    /*
+    
 	@Test
 	public void getForumTest()
 	{

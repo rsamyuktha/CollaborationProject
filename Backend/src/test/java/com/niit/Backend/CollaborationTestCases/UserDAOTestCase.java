@@ -33,7 +33,7 @@ static UserDAO userDAO;
 		
 		userDAO=(UserDAO)context.getBean("userDAO");
 	}
-	
+	/*
 	
 
 	@Test
@@ -57,5 +57,5 @@ static UserDAO userDAO;
 		User user=userDAO.getUser("samyuktha");
 		assertTrue("Problem in assertion..",userDAO.updateOnlineStatus("Y", user));
 	}
-
+*/
 }
