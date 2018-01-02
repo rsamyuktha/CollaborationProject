@@ -1,0 +1,34 @@
+<div ng-controller="UserController">
+    <table>
+        <form id="Users">
+             <table>
+                 <tr>
+                
+                     <td> User Name </td>
+                     <td><input type="text" ng-model="user.username"/></td>
+                 </tr>
+                 <tr>
+                     <td> Password </td>
+                     <td><input type="password" ng-model="user.password"/></td>
+                 </tr>
+                 <tr>
+                     <td> FirstName </td>
+                     <td><input type="text" ng-model="user.firstname"/></td>
+                 </tr>
+                 <tr>
+                     <td> LastName </td>
+                     <td><input type="text" ng-model="user.lastname"/></td>
+                 </tr>
+                  <tr>
+                     <td> email Id </td>
+                     <td><input type="text" ng-model="user.emailId"/></td>
+                 </tr>
+                 <tr>
+                     <td colspan='2'>
+                     <input type="submit" ng-click="registerUser"/>
+                     </td>
+                 </tr>
+             </table> 
+        </form>
+    </table>
+</div>
