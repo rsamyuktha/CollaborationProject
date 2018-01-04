@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login - User</title>
+<link rel="stylesheet" href="lib/css/style.css">
+<style type="text/css">
+body
+{
+    background-image: url("images/login.png");
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+</style>
+</head>
+<body>
+
+<div class="container" data-ng-controller = "UserController as ctrl">
+	<section id="content">
+		<form name="form" data-ng-submit="ctrl.login()" role="form">
+			<h1>Login Here</h1>
+			<div>
+				<input type="text" placeholder="Username" required="required" id="username" data-ng-model="user.username"/>
+			</div>
+			<div>
+				<input type="password" placeholder="Password" required="required" id="password" data-ng-model="user.password"/>
+			</div>
+			<div>
+				<input type="submit" value="Log in" />
+				<a href="#"></a>
+				<a href="#/register">Register</a>
+			</div>
+		</form><!-- form -->
+	</section><!-- content -->
+</div><!-- container -->
+</body>
+</html>
