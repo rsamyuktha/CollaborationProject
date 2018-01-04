@@ -1,0 +1,15 @@
+com\niit\collaboration\util\Date_Time.class
+com\niit\collaboration\controller\ChatController.class
+com\niit\collaboration\controller\AdminController.class
+com\niit\collaboration\controller\ForumController.class
+com\niit\collaboration\controller\ForumReplyController.class
+com\niit\collaboration\chat\OutputMessage.class
+com\niit\collaboration\controller\UserController.class
+com\niit\collaboration\chat\Message.class
+com\niit\collaboration\controller\FileUploadController.class
+com\niit\collaboration\controller\BlogCommentController.class
+com\niit\collaboration\controller\EventController.class
+com\niit\collaboration\controller\AppliedJobsController.class
+com\niit\collaboration\controller\FriendController.class
+com\niit\collaboration\controller\JobController.class
+com\niit\collaboration\controller\BlogController.class
