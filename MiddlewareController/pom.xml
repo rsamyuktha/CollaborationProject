@@ -11,10 +11,10 @@
     
     <dependency>
     
-    <groupId>com.niit</groupId>
+     <groupId>com.niit</groupId>
   <artifactId>Backend</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-   </dependency>
+ </dependency>
    
     
     <!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -39,6 +39,15 @@
 			<version>4.3.7.RELEASE</version>
 		</dependency>
 
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>4.3.7.RELEASE</version>
+		</dependency>
+
+	
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
 		<dependency>
 			<groupId>org.springframework</groupId>
