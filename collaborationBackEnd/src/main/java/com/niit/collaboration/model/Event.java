@@ -21,9 +21,7 @@ public class Event extends BaseDomain
 {
 	@Id
 	
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQUENCE11")
-	@SequenceGenerator(name="SEQUENCE11", sequenceName="SEQUENCE11", allocationSize=1)
-
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
 	private String name;

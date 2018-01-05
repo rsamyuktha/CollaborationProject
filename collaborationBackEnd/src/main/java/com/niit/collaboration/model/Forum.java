@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class Forum extends BaseDomain
 {
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String forum_id;
 	@Lob

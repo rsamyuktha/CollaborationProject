@@ -17,9 +17,7 @@ import org.springframework.stereotype.Component;
 public class Job extends BaseDomain
 {
 	@Id
-
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQUENCE2")
-	@SequenceGenerator(name="SEQUENCE2", sequenceName="SEQUENCE2", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int job_id;
 	private String title;
 	private String username;

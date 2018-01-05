@@ -15,12 +15,8 @@ import org.springframework.stereotype.Component;
 public class Blog extends BaseDomain
 {
 	@Id
-	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	//@GeneratedValue(strategy = GenerationType.AUTO)
-	
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQUENCE1")
-	@SequenceGenerator(name="SEQUENCE1", sequenceName="SEQUENCE1", allocationSize=1)
-	private long blog_id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int blog_id;
 	private String blog_title;
 	@Lob
 	private String description;
@@ -30,7 +26,7 @@ public class Blog extends BaseDomain
 	@Lob
 	private String rejected;
 	
-	public long getBlog_id() {
+	public int getBlog_id() {
 		return blog_id;
 	}
 

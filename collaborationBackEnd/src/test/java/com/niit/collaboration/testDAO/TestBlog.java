@@ -35,9 +35,9 @@ Logger log = LoggerFactory.getLogger(TestUser.class);
 	
 	public void addBlog()
 	{
-		blog.setBlog_title("N th Blog");
-		blog.setDescription("Hello");
-		blog.setUsername("testdone");
+		blog.setBlog_title("N2 th Blog");
+		blog.setDescription("Hello2");
+		blog.setUsername("testdone1");
 		blog.setDate_time("DATE_TIME");
 		blogDAO.addBlog(blog);
 		System.out.println("Success?");
